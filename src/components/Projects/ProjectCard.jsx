@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-const ProjectCard = ({ title, description, technologies, link, image }) => {
+const ProjectCard = ({ title, description, details, technologies, link, image }) => {
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -18,20 +18,36 @@ const ProjectCard = ({ title, description, technologies, link, image }) => {
       </div>
       <div className="project-content">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p className="description">{description}</p>
+        
+        <div className="project-details">
+          <h4>Key Features:</h4>
+          <ul>
+            {details.map((detail, index) => (
+              <li key={index}>{detail}</li>
+            ))}
+          </ul>
+        </div>
+        
         <div className="technologies">
           {technologies.map((tech, index) => (
             <span key={index}>{tech}</span>
           ))}
         </div>
-        <a 
-          href={link} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="project-link"
-        >
-          <FaGithub /> View on GitHub
-        </a>
+        
+        <div className="project-links">
+          {link && (
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="project-link"
+            >
+              {link.includes('github') ? <FaGithub /> : <FaExternalLinkAlt />}
+              {link.includes('github') ? ' View Code' : ' View Project'}
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
