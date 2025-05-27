@@ -5,25 +5,52 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
+      title: "Gemauth – Gemstone Auction & ML Platform",
+      description: "A gemstone auction and ML-powered authentication platform that ensures secure and transparent transactions.",
+      details: [
+        "Developed image-based gemstone analysis for accurate identification",
+        "Implemented admin-approved auction listings",
+        "Created escrow-based payment system for trust and reliability"
+      ],
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT", "Python"],
+      link: "#",
+      image: "/images/gemauth.jpg"
+    },
+    {
+      title: "Cinex – Cinema Booking System",
+      description: "Developed a complete front-end for a cinema booking system with PayPal integration and real-time features.",
+      details: [
+        "User-friendly booking interface with real-time seat availability",
+        "Integrated PayPal payment processing",
+        "Secure transaction handling"
+      ],
+      technologies: ["React.js", "HTML", "CSS", "Bootstrap"],
+      link: "#",
+      image: "/images/cinex.jpg"
+    },
+    {
       title: "GoAppoint – Online Appointment System",
       description: "An online appointment scheduling system designed for efficient bookings and time management.",
+      details: [
+        "Role-based authentication system",
+        "Real-time notifications",
+        "Responsive user interface"
+      ],
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB"],
       link: "https://github.com/ravishka1325/GROUP-PROJECT",
-      image: "/assets/images/project1.jpg"
+      image: "/images/goappoint.jpg"
     },
     {
       title: "Green Supermarket – Online Shopping",
-      description: "An e-commerce platform for grocery shopping with secure transactions and user-friendly navigation.",
+      description: "An e-commerce platform for grocery shopping with secure transactions.",
+      details: [
+        "Secure cart and checkout system",
+        "Order tracking functionality",
+        "Search and filtering features"
+      ],
       technologies: ["React.js", "Bootstrap", "Node.js", "MongoDB"],
       link: "https://github.com/kisarasandes1122/GreenSupermarket",
-      image: "/assets/images/project2.jpg"
-    },
-    {
-      title: "Hostel Rental Project",
-      description: "An online platform that enables hostel rentals with integrated location services and user-friendly navigation.",
-      technologies: ["PHP", "JavaScript", "MySQL", "Bootstrap"],
-      link: "#",
-      image: "/assets/images/project3.jpg"
+      image: "/images/greensupermarket.jpg"
     }
   ];
 
@@ -67,6 +94,7 @@ const Projects = () => {
               key={index}
               title={project.title}
               description={project.description}
+              details={project.details}
               technologies={project.technologies}
               link={project.link}
               image={project.image}
