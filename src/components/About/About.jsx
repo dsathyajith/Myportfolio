@@ -28,15 +28,15 @@ const About = () => {
             variants={fadeIn}
             viewport={{ once: true }}
           >
-            <p>
-              Results-driven Software Engineering Undergraduate with expertise in front-end development, UI/UX design, and full-stack technologies. Passionate about building scalable, user-friendly web applications and continuously improving my technical skills.
-            </p>
-            <p>
-              Seeking opportunities to contribute to innovative projects while expanding my expertise in React.js, MongoDB, and secure authentication systems.
-            </p>
+          <p>
+            I'm a results-driven Software Engineering graduate with a strong focus on frontend development, UI/UX design, and full-stack technologies. I’ve completed my BSc (Hons) in Software Engineering and am currently awaiting graduation.
+          </p>
+          <p>
+            I'm currently focusing on building scalable, secure, and user-friendly web applications using React, while also learning Angular and expanding my skills in DevOps, authentication systems, and modern web technologies.
+          </p>
             <div className="btn-container">
               <a 
-                href="https://drive.google.com/file/d/17Afka3n8kY1SY57aJz8WgBj2yJFS6xJh/view?usp=sharing" 
+                href="https://drive.google.com/file/d/11COah1EQ7rQw__Yxs3mlC_rzmOCEquz0/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn"
@@ -58,7 +58,7 @@ const About = () => {
             <div className="timeline">
               <div className="timeline-item">
                 <h4>BSc (Hons) Software Engineering</h4>
-                <p>University of Plymouth (2022 - Present)</p>
+                <p>University of Plymouth (Completed – Graduation Pending, 2025)</p>
               </div>
               <div className="timeline-item">
                 <h4>G.C.E. A/L Examination</h4>
