@@ -14,30 +14,35 @@ const ProjectCard = ({ title, description, technologies, link, image }) => {
         />
       </div>
       <div className="project-content">
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <div className="technologies">
-          {technologies.map((tech, index) => (
-            <span key={index}>{tech}</span>
-          ))}
+        <div className="project-content-inner">
+          <h3>{title}</h3>
+          <p>{description}</p>
+          <div className="technologies">
+            {technologies.map((tech, index) => (
+              <span key={index}>{tech}</span>
+            ))}
+          </div>
         </div>
+        
         {link && (
-          <a 
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="project-link"
-          >
-            {link.includes('github') ? (
-              <>
-                <FaGithub /> View Code
-              </>
-            ) : (
-              <>
-                <FaExternalLinkAlt /> View Live
-              </>
-            )}
-          </a>
+          <div className="project-link-container">
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="project-link"
+            >
+              {link.includes('github') ? (
+                <>
+                  <FaGithub /> View Code
+                </>
+              ) : (
+                <>
+                  <FaExternalLinkAlt /> View Live
+                </>
+              )}
+            </a>
+          </div>
         )}
       </div>
     </div>

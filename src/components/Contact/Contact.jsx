@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedinIn, FaGithub , FaInstagram, FaYoutube, FaFacebookF} from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -48,11 +48,20 @@ const Contact = () => {
             </div>
             
             <div className="social-links">
+              <a href="https://www.facebook.com/dilanjana.sathyajith/" target="_blank" rel="noopener noreferrer">
+                <FaFacebookF />
+              </a>
+              <a href="https://www.instagram.com/ds_meeriyagalla/" target="_blank" rel="noopener noreferrer">
+                <FaInstagram />
+              </a>
               <a href="https://www.linkedin.com/in/dilanjana/" target="_blank" rel="noopener noreferrer">
                 <FaLinkedinIn />
               </a>
-              <a href="https://github.com/YOKIxD" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/dsathyajith" target="_blank" rel="noopener noreferrer">
                 <FaGithub />
+              </a>
+              <a href="https://www.youtube.com/@mryoki" target="_blank" rel="noopener noreferrer">
+                <FaYoutube />
               </a>
             </div>
           </motion.div>

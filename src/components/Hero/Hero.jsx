@@ -1,17 +1,32 @@
 import { useEffect } from 'react';
-import { FaGithub, FaLinkedinIn, FaTwitter, FaYoutube, FaInstagram, FaFacebookF } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaYoutube,
+  FaInstagram,
+  FaFacebookF
+} from 'react-icons/fa';
 import './Hero.css';
 import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   useEffect(() => {
-    const textElements = document.querySelectorAll('.hero-content h1, .hero-content h3, .hero-content p, .social-icons a');
-    
-    textElements.forEach((el, index) => {
-      setTimeout(() => {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, index * 200);
+    const elementsToAnimate = [
+      '.greeting',
+      '.name',
+      '.title-container h2',
+      '.intro-text',
+      '.social-icons',
+      '.cta-buttons'
+    ];
+
+    elementsToAnimate.forEach((selector, index) => {
+      const el = document.querySelector(selector);
+      if (el) {
+        setTimeout(() => {
+          el.classList.add('show');
+        }, index * 300);
+      }
     });
   }, []);
 
@@ -21,21 +36,22 @@ const Hero = () => {
         <div className="hero-content">
           <h3 className="greeting">Hello, I'm</h3>
           <h1 className="name">Dilanjana Sathyajith</h1>
+
           <div className="title-container">
             <TypeAnimation
               sequence={[
-                'Frontend Developer',
+                'Software Engineer',
                 1000,
-                'UI/UX Designer',
+                'Full-Stack Developer',
                 1000,
-                'Web Developer',
+                'React Developer',
                 1000,
-                'YouTuber',
+                'UI/UX Enthusiast',
                 1000
               ]}
               wrapper="h2"
               speed={50}
-              style={{ 
+              style={{
                 color: 'var(--primary-color)',
                 fontSize: '2.5rem',
                 fontWeight: '600',
@@ -44,19 +60,34 @@ const Hero = () => {
               repeat={Infinity}
             />
           </div>
+
           <p className="intro-text">
-            A Frontend Developer passionate about building clean, scalable, and user focused digital experiences.
-            I specialize in crafting intuitive interfaces using modern web technologies bringing design to life with performance and precision.
+            Building innovative digital experiences with React, Angular, and modern web technologies.
+            Passionate about creating clean, scalable applications with intuitive interfaces.
           </p>
+
           <div className="social-icons">
-            <a href="https://www.facebook.com/dilanjana.sathyajith/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-            <a href="https://www.youtube.com/@mryoki/featured" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
-            <a href="https://twitter.com/DilanjanaSathy1" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-            <a href="https://www.instagram.com/mryoki_/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-            <a href="https://www.linkedin.com/in/dilanjana/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-            <a href="https://github.com/YOKIxD" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="https://www.facebook.com/dilanjana.sathyajith/" target="_blank" rel="noopener noreferrer">
+              <FaFacebookF />
+            </a>
+            <a href="https://www.instagram.com/ds_meeriyagalla/" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+            <a href="https://www.linkedin.com/in/dilanjana/" target="_blank" rel="noopener noreferrer">
+              <FaLinkedinIn />
+            </a>
+            <a href="https://github.com/dsathyajith" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+            </a>
+            <a href="https://www.youtube.com/@mryoki" target="_blank" rel="noopener noreferrer">
+                <FaYoutube />
+            </a>
           </div>
-          <a href="#contact" className="cta-button">Let's Connect</a>
+
+          <div className="cta-buttons">
+            <a href="#contact" className="cta-button">Let's Connect</a>
+            <a href="https://drive.google.com/file/d/11COah1EQ7rQw__Yxs3mlC_rzmOCEquz0/view?usp=sharing"  download className="cta-button secondary">Download CV</a>
+          </div>
         </div>
       </div>
     </section>
