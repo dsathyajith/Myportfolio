@@ -1,109 +1,268 @@
 .about {
-  background: var(--dark-color);
+  background: var(--bg-secondary);
 }
 
-.about-content {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: start;
 }
 
-.about-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.about-text p {
-  color: var(--light-color);
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.btn-container {
-  margin-top: 2rem;
-}
-
-.education {
-  flex: 1;
-  min-width: 300px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-}
-
-.education h3 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+/* Bio Card */
+.about-bio-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
   position: relative;
-  padding-bottom: 0.5rem;
+  overflow: hidden;
 }
 
-.education h3::after {
+.about-bio-card::before {
   content: '';
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
-  width: 50px;
+  right: 0;
   height: 3px;
-  background: var(--primary-color);
+  background: var(--gradient);
+}
+
+.about-bio-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.2rem;
+}
+
+.about-bio-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+/* Stats Row */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.about-stat {
+  background: rgba(91, 155, 247, 0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: border-color 0.25s ease;
+}
+
+.about-stat:hover {
+  border-color: var(--border-hover);
+}
+
+.about-stat-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.stat-value {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  line-height: 1.2;
+}
+
+.stat-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Languages */
+.about-languages {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(91, 155, 247, 0.07);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.lang-level {
+  font-size: 0.66rem;
+  color: var(--accent);
+  background: rgba(91, 155, 247, 0.12);
+  padding: 0.12rem 0.45rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Education Side */
+.education-side h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
 }
 
 .timeline {
   position: relative;
   padding-left: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 7px;
-  height: 100%;
+  left: 8px;
+  top: 10px;
+  bottom: 0;
   width: 2px;
-  background: var(--primary-color);
+  background: linear-gradient(to bottom, var(--accent-dark), transparent);
 }
 
 .timeline-item {
   position: relative;
-  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .timeline-item:last-child {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
-.timeline-item::before {
-  content: '';
+.timeline-dot {
   position: absolute;
-  top: 5px;
   left: -2rem;
-  width: 16px;
-  height: 16px;
+  top: 10px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border: 3px solid var(--bg-secondary);
   border-radius: 50%;
-  background: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(91, 155, 247, 0.2);
 }
 
-.timeline-item h4 {
-  color: var(--light-color);
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.timeline-item p {
-  color: rgba(255, 255, 255, 0.7);
+.timeline-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-blue);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  background: rgba(91, 155, 247, 0.1);
+  border: 1px solid rgba(91, 155, 247, 0.2);
+  padding: 0.22rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.7rem;
+}
+
+.timeline-card h4 {
   font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    flex-direction: column;
+.institution {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.grade {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Extras */
+.extras-section {}
+
+.extras-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 0.85rem;
+}
+
+.extras-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.extra-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  background: rgba(91, 155, 247, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  transition: border-color 0.25s ease;
+}
+
+.extra-tag:hover {
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+@media (max-width: 880px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
-  
-  .education {
-    margin-top: 2rem;
-  }
+}
+
+@media (max-width: 600px) {
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .about-languages { gap: 0.4rem; }
+}
+
+@media (max-width: 480px) {
+  .about-bio-card { padding: 1.5rem 1.1rem; }
+  .about-bio-card p { font-size: 0.9rem; }
+  .timeline-card { padding: 1.2rem; }
+  .extras-list { gap: 0.4rem; }
+}
+
+@media (max-width: 360px) {
+  .about-stats { grid-template-columns: 1fr; }
+  .about-bio-card { padding: 1.2rem 0.9rem; }
+  .education-side h3 { font-size: 1.1rem; }
 }

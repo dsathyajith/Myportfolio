@@ -1,50 +1,54 @@
 import { useState, useEffect } from 'react';
 import './Header.css';
 
+const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        
-        <div className={`nav-toggle ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
-        </div>
-        
+        <a href="#home" className="logo" onClick={closeMenu}>
+          <span className="logo-bracket">{'{'}</span>
+          <span className="logo-initials">DS</span>
+          <span className="logo-bracket">{'}'}</span>
+        </a>
+
         <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
           <ul>
-            <li><a href="#home" onClick={closeMenu}>Home</a></li>
-            <li><a href="#about" onClick={closeMenu}>About</a></li>
-            <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
-            <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
-            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+            {navLinks.map(link => (
+              <li key={link}>
+                <a href={`#${link.toLowerCase()}`} onClick={closeMenu}>
+                  {link}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
+
+        <a href="#contact" className="btn btn-primary header-cta">
+          Hire Me
+        </a>
+
+        <button
+          className={`menu-toggle ${isMenuOpen ? 'open' : ''}`}
+          onClick={() => setIsMenuOpen(o => !o)}
+          aria-label="Toggle menu"
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
       </div>
     </header>
   );

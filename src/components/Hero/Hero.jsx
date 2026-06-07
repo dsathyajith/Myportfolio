@@ -1,95 +1,190 @@
-import { useEffect } from 'react';
 import {
   FaGithub,
   FaLinkedinIn,
-  FaYoutube,
   FaInstagram,
-  FaFacebookF
-} from 'react-icons/fa';
-import './Hero.css';
-import { TypeAnimation } from 'react-type-animation';
+  FaFacebookF,
+  FaYoutube,
+  FaArrowRight,
+  FaDownload,
+} from "react-icons/fa";
+import { TypeAnimation } from "react-type-animation";
+import "./Hero.css";
+
+const socialLinks = [
+  {
+    href: "https://www.facebook.com/dilanjana.sathyajith/",
+    icon: <FaFacebookF />,
+    label: "Facebook",
+  },
+  {
+    href: "https://www.instagram.com/ds_meeriyagalla/",
+    icon: <FaInstagram />,
+    label: "Instagram",
+  },
+  {
+    href: "https://www.linkedin.com/in/dilanjana/",
+    icon: <FaLinkedinIn />,
+    label: "LinkedIn",
+  },
+  {
+    href: "https://github.com/dsathyajith",
+    icon: <FaGithub />,
+    label: "GitHub",
+  },
+  {
+    href: "https://www.youtube.com/@mryoki",
+    icon: <FaYoutube />,
+    label: "YouTube",
+  },
+];
 
 const Hero = () => {
-  useEffect(() => {
-    const elementsToAnimate = [
-      '.greeting',
-      '.name',
-      '.title-container h2',
-      '.intro-text',
-      '.social-icons',
-      '.cta-buttons'
-    ];
-
-    elementsToAnimate.forEach((selector, index) => {
-      const el = document.querySelector(selector);
-      if (el) {
-        setTimeout(() => {
-          el.classList.add('show');
-        }, index * 300);
-      }
-    });
-  }, []);
-
   return (
     <section id="home" className="hero">
-      <div className="container">
-        <div className="hero-content">
-          <h3 className="greeting">Hello, I'm</h3>
-          <h1 className="name">Dilanjana Sathyajith</h1>
+      <div className="hero-bg">
+        <div className="hero-grid" />
+        <div className="hero-orb orb-1" />
+        <div className="hero-orb orb-2" />
+      </div>
 
-          <div className="title-container">
+      <div className="container">
+        {/* Left — Text */}
+        <div className="hero-text">
+          <div className="hero-status">
+            <span className="status-dot" />
+            Available for Internship
+          </div>
+
+          <p className="hero-greeting">Hello, I'm</p>
+
+          <h1 className="hero-name">
+            Dilanjana
+            <span className="name-accent">Sathyajith</span>
+          </h1>
+
+          <p className="hero-role">
             <TypeAnimation
               sequence={[
-                'Software Engineer',
-                1000,
-                'Full-Stack Developer',
-                1000,
-                'React Developer',
-                1000,
-                'UI/UX Enthusiast',
-                1000
+                "Software Engineer",
+                1800,
+                "React & Frontend Developer",
+                1800,
+                "Python & Backend Enthusiast",
+                1800,
+                "UI/UX Enthusiast",
+                1800,
               ]}
-              wrapper="h2"
-              speed={50}
-              style={{
-                color: 'var(--primary-color)',
-                fontSize: '2.5rem',
-                fontWeight: '600',
-                margin: '1rem 0'
-              }}
+              wrapper="span"
+              className="typed-role"
+              speed={55}
               repeat={Infinity}
             />
-          </div>
-
-          <p className="intro-text">
-            Building innovative digital experiences with React, Angular, and modern web technologies.
-            Passionate about creating clean, scalable applications with intuitive interfaces.
           </p>
 
-          <div className="social-icons">
-            <a href="https://www.facebook.com/dilanjana.sathyajith/" target="_blank" rel="noopener noreferrer">
-              <FaFacebookF />
-            </a>
-            <a href="https://www.instagram.com/ds_meeriyagalla/" target="_blank" rel="noopener noreferrer">
-              <FaInstagram />
-            </a>
-            <a href="https://www.linkedin.com/in/dilanjana/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedinIn />
-            </a>
-            <a href="https://github.com/dsathyajith" target="_blank" rel="noopener noreferrer">
-              <FaGithub />
-            </a>
-            <a href="https://www.youtube.com/@mryoki" target="_blank" rel="noopener noreferrer">
-                <FaYoutube />
-            </a>
+          <p className="hero-bio">
+            Motivated software engineer with a BSc (Hons) in Software
+            Engineering, bridging strong frontend (React) skills with an active
+            focus on backend technologies and scalable systems.
+          </p>
+
+          <div className="hero-social">
+            {socialLinks.map(({ href, icon, label }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label={label}
+              >
+                {icon}
+              </a>
+            ))}
           </div>
 
-          <div className="cta-buttons">
-            <a href="#contact" className="cta-button">Let's Connect</a>
-            <a href="https://drive.google.com/file/d/11COah1EQ7rQw__Yxs3mlC_rzmOCEquz0/view?usp=sharing"  download className="cta-button secondary">Download CV</a>
+          <div className="hero-cta">
+            <a href="#projects" className="btn btn-primary">
+              View Projects <FaArrowRight />
+            </a>
+            <a
+              href="https://drive.google.com/file/d/11COah1EQ7rQw__Yxs3mlC_rzmOCEquz0/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-ghost"
+            >
+              Download CV <FaDownload />
+            </a>
+          </div>
+        </div>
+
+        {/* Right — Terminal Card */}
+        <div className="hero-visual">
+          <div className="terminal-card">
+            <div className="terminal-header">
+              <span className="dot dot-red" />
+              <span className="dot dot-yellow" />
+              <span className="dot dot-green" />
+              <span className="terminal-title">profile.json</span>
+            </div>
+            <div className="terminal-body">
+              <span className="json-line">
+                <span className="json-bracket">{"{"}</span>
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"name"</span>:{" "}
+                <span className="json-string">"Dilanjana Sathyajith"</span>,
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"role"</span>:{" "}
+                <span className="json-string">"Software Engineer"</span>,
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"degree"</span>:{" "}
+                <span className="json-string">"BSc (Hons) Soft. Eng."</span>,
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"university"</span>:{" "}
+                <span className="json-string">"Plymouth via NSBM"</span>,
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"focus"</span>:{" "}
+                <span className="json-string">"React + Python"</span>,
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"location"</span>:{" "}
+                <span className="json-string">"Sri Lanka"</span>,
+              </span>
+              <span className="json-line">
+                &nbsp;&nbsp;<span className="json-key">"status"</span>:{" "}
+                <span className="json-bool">"open_to_work"</span>
+              </span>
+              <span className="json-line">
+                <span className="json-bracket">{"}"}</span>
+              </span>
+            </div>
+          </div>
+
+          <div className="hero-stats">
+            {[
+              { number: "7+", label: "Projects Built" },
+              { number: "3+", label: "Years Learning" },
+              { number: "BSc", label: "Software Eng." },
+            ].map(({ number, label }) => (
+              <div key={label} className="stat-card">
+                <div className="stat-number">{number}</div>
+                <div className="stat-label">{label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      <a href="#about" className="scroll-indicator">
+        <div className="scroll-mouse">
+          <div className="scroll-wheel" />
+        </div>
+        <span>Scroll</span>
+      </a>
     </section>
   );
 };

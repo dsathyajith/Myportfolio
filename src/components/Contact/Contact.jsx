@@ -1,98 +1,131 @@
 import { motion } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedinIn, FaGithub , FaInstagram, FaYoutube, FaFacebookF} from 'react-icons/fa';
+import {
+  FaEnvelope, FaMapMarkerAlt,
+  FaLinkedinIn, FaGithub, FaInstagram, FaFacebookF, FaPaperPlane,
+} from 'react-icons/fa';
 import './Contact.css';
 
-const Contact = () => {
-  const fadeIn = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
-  };
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+};
 
+const socialLinks = [
+  { href: 'https://www.linkedin.com/in/dilanjana/', icon: <FaLinkedinIn />, label: 'LinkedIn' },
+  { href: 'https://github.com/dsathyajith', icon: <FaGithub />, label: 'GitHub' },
+  { href: 'https://www.instagram.com/ds_meeriyagalla/', icon: <FaInstagram />, label: 'Instagram' },
+  { href: 'https://www.facebook.com/dilanjana.sathyajith/', icon: <FaFacebookF />, label: 'Facebook' },
+];
+
+const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <motion.h2 
-          className="section-title"
+        <motion.div
+          className="section-header"
           initial="hidden"
           whileInView="visible"
-          variants={fadeIn}
+          variants={fadeUp}
           viewport={{ once: true }}
         >
-          Get In Touch
-        </motion.h2>
-        
-        <div className="contact-content">
-          <motion.div 
-            className="contact-info"
+          <div className="section-eyebrow">
+            <span className="eyebrow-line" /> Contact <span className="eyebrow-line" />
+          </div>
+          <h2 className="section-title">
+            Let's <span className="highlight">Work Together</span>
+          </h2>
+          <p className="section-desc">Open to internship opportunities and collaborations. Let's connect!</p>
+        </motion.div>
+
+        <div className="contact-grid">
+          {/* Info Side */}
+          <motion.div
             initial="hidden"
             whileInView="visible"
-            variants={fadeIn}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
-            <h3>Contact Information</h3>
-            <p>Feel free to reach out to me for any questions or opportunities!</p>
-            
-            <div className="info-item">
-              <FaPhone className="icon" />
-              <span>+94 76 160 7175</span>
-            </div>
-            
-            <div className="info-item">
-              <FaEnvelope className="icon" />
-              <span>meeriyagallad@gmail.com</span>
-            </div>
-            
-            <div className="info-item">
-              <FaMapMarkerAlt className="icon" />
-              <span>Colombo, Sri Lanka</span>
-            </div>
-            
-            <div className="social-links">
-              <a href="https://www.facebook.com/dilanjana.sathyajith/" target="_blank" rel="noopener noreferrer">
-                <FaFacebookF />
-              </a>
-              <a href="https://www.instagram.com/ds_meeriyagalla/" target="_blank" rel="noopener noreferrer">
-                <FaInstagram />
-              </a>
-              <a href="https://www.linkedin.com/in/dilanjana/" target="_blank" rel="noopener noreferrer">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://github.com/dsathyajith" target="_blank" rel="noopener noreferrer">
-                <FaGithub />
-              </a>
-              <a href="https://www.youtube.com/@mryoki" target="_blank" rel="noopener noreferrer">
-                <FaYoutube />
-              </a>
+            <div className="contact-info-side">
+              <h3>Get In Touch</h3>
+              <p className="contact-tagline">
+                Whether you have an internship opportunity, a project idea, or just want to
+                say hello — my inbox is always open. I'll get back to you as soon as possible!
+              </p>
+
+              <div className="info-cards">
+                <a href="mailto:meeriyagallad@gmail.com" className="info-card">
+                  <div className="info-icon"><FaEnvelope /></div>
+                  <div>
+                    <div className="info-label">Email</div>
+                    <div className="info-value">meeriyagallad@gmail.com</div>
+                  </div>
+                </a>
+                <div className="info-card">
+                  <div className="info-icon"><FaMapMarkerAlt /></div>
+                  <div>
+                    <div className="info-label">Location</div>
+                    <div className="info-value">Colombo, Sri Lanka</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-social">
+                <h4>Find me on</h4>
+                <div className="contact-social-links">
+                  {socialLinks.map(({ href, icon, label }) => (
+                    <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="contact-social-link">
+                      {icon} {label}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </motion.div>
-          
-          <motion.form 
-            className="contact-form"
+
+          {/* Form Side */}
+          <motion.div
             initial="hidden"
             whileInView="visible"
-            variants={fadeIn}
+            variants={fadeUp}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.15 }}
           >
-            <div className="form-group">
-              <input type="text" placeholder="Your Name" required />
+            <div className="contact-form-card">
+              <h3>Send a Message</h3>
+
+              <form>
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="John Doe" required />
+                  </div>
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="john@example.com" required />
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <label>Subject</label>
+                  <input type="text" placeholder="What's this about?" required />
+                </div>
+
+                <div className="form-group">
+                  <label>Message</label>
+                  <textarea placeholder="Write your message here..." rows="5" required />
+                </div>
+
+                <button type="submit" className="btn btn-primary form-submit">
+                  Send Message <FaPaperPlane />
+                </button>
+              </form>
             </div>
-            
-            <div className="form-group">
-              <input type="email" placeholder="Your Email" required />
-            </div>
-            
-            <div className="form-group">
-              <input type="text" placeholder="Subject" required />
-            </div>
-            
-            <div className="form-group">
-              <textarea placeholder="Your Message" rows="5" required></textarea>
-            </div>
-            
-            <button type="submit" className="btn">Send Message</button>
-          </motion.form>
+          </motion.div>
         </div>
+
+        <footer className="site-footer">
+          <p>© 2026 <span>Dilanjana Sathyajith</span>. Crafted with React &amp; framer-motion.</p>
+        </footer>
       </div>
     </section>
   );

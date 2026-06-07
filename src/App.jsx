@@ -11,16 +11,17 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
+    const timer = setTimeout(() => setLoading(false), 1800);
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
     return (
       <div className="preloader">
+        <div className="preloader-monogram">
+          <span className="mono-d">D</span>
+          <span className="mono-s">S</span>
+        </div>
         <div className="spinner"></div>
       </div>
     );
