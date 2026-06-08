@@ -50,12 +50,7 @@ const Hero = () => {
       <div className="container">
         {/* Left — Text */}
         <div className="hero-text">
-          <div className="hero-status">
-            <span className="status-dot" />
-            Available for Internship
-          </div>
-
-          <p className="hero-greeting">Hello, I'm</p>
+<p className="hero-greeting">Hello, I'm</p>
 
           <h1 className="hero-name">
             Dilanjana
@@ -164,18 +159,6 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero-stats">
-            {[
-              { number: "7+", label: "Projects Built" },
-              { number: "3+", label: "Years Learning" },
-              { number: "BSc", label: "Software Eng." },
-            ].map(({ number, label }) => (
-              <div key={label} className="stat-card">
-                <div className="stat-number">{number}</div>
-                <div className="stat-label">{label}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 

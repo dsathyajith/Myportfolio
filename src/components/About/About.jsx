@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaDownload, FaRocket } from 'react-icons/fa';
+import { FaGraduationCap, FaDownload } from 'react-icons/fa';
 import './About.css';
 
 const fadeUp = {
@@ -48,24 +48,7 @@ const About = () => {
                 architectures — seeking to contribute to modern, enterprise-grade web applications.
               </p>
 
-              <div className="about-stats">
-                <div className="about-stat">
-                  <div className="about-stat-icon"><FaRocket /></div>
-                  <div>
-                    <div className="stat-value">7+ Projects</div>
-                    <div className="stat-desc">Built &amp; Delivered</div>
-                  </div>
-                </div>
-                <div className="about-stat">
-                  <div className="about-stat-icon"><FaGraduationCap /></div>
-                  <div>
-                    <div className="stat-value">BSc (Hons)</div>
-                    <div className="stat-desc">Software Engineering</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="about-languages">
+<div className="about-languages">
                 <span className="lang-badge">English <span className="lang-level">Proficient</span></span>
                 <span className="lang-badge">Sinhala <span className="lang-level">Native</span></span>
                 <span className="lang-badge">Japanese <span className="lang-level">Learning</span></span>
