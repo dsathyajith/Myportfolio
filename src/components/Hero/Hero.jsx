@@ -102,7 +102,7 @@ const Hero = () => {
               View Projects <FaArrowRight />
             </a>
             <a
-              href="https://drive.google.com/file/d/11COah1EQ7rQw__Yxs3mlC_rzmOCEquz0/view?usp=sharing"
+              href="https://drive.google.com/file/d/1uWnmGZlpJ5PF2i8CImXHS7kI3IIevofG/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-ghost"
