@@ -1,9 +1,15 @@
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import {
   FaEnvelope, FaMapMarkerAlt,
   FaLinkedinIn, FaGithub, FaInstagram, FaFacebookF, FaPaperPlane,
 } from 'react-icons/fa';
 import './Contact.css';
+
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -18,6 +24,26 @@ const socialLinks = [
 ];
 
 const Contact = () => {
+  const formRef = useRef(null);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      );
+      setStatus('success');
+      formRef.current.reset();
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contact" className="contact">
       <div className="container">
@@ -93,30 +119,37 @@ const Contact = () => {
             <div className="contact-form-card">
               <h3>Send a Message</h3>
 
-              <form>
+              <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
                     <label>Name</label>
-                    <input type="text" placeholder="John Doe" required />
+                    <input type="text" name="from_name" placeholder="John Doe" required />
                   </div>
                   <div className="form-group">
                     <label>Email</label>
-                    <input type="email" placeholder="john@example.com" required />
+                    <input type="email" name="from_email" placeholder="john@example.com" required />
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label>Subject</label>
-                  <input type="text" placeholder="What's this about?" required />
+                  <input type="text" name="subject" placeholder="What's this about?" required />
                 </div>
 
                 <div className="form-group">
                   <label>Message</label>
-                  <textarea placeholder="Write your message here..." rows="5" required />
+                  <textarea name="message" placeholder="Write your message here..." rows="5" required />
                 </div>
 
-                <button type="submit" className="btn btn-primary form-submit">
-                  Send Message <FaPaperPlane />
+                {status === 'success' && (
+                  <p className="form-feedback success">Message sent! I'll get back to you soon.</p>
+                )}
+                {status === 'error' && (
+                  <p className="form-feedback error">Something went wrong. Please try again.</p>
+                )}
+
+                <button type="submit" className="btn btn-primary form-submit" disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Sending...' : <> Send Message <FaPaperPlane /> </>}
                 </button>
               </form>
             </div>
